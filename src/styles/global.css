@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta enviada pela Kezia */
+  --color-sereno: #547c96;
+  --color-salvia: #8da995;
+  --color-sereno-claro: #a3c4d8; /* azul sereno para texto sobre fundo escuro (contraste AA) */
+  --color-nevoa: #e8f0f2;
+  --color-profundo: #344f5c;
+  /* Extras puxados do Instagram dela */
+  --color-marinho: #1f2f66;
+  --color-creme: #f6f3ec;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); color: var(--color-profundo); background: #fff; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.rise-2 { animation-delay: .12s; }
+.rise-3 { animation-delay: .24s; }
+.rise-4 { animation-delay: .36s; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+}
+
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+
+/* Texto de conteúdo: um único tamanho, entrelinha e cor em todas as seções e dispositivos. */
+@layer components {
+  .body-text {
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: #111;
+    text-wrap: pretty;
+  }
+}
+
+/* Menu mobile: o cartão cresce a partir do botão (canto superior direito) e os links entram em sequência. */
+.menu-panel {
+  clip-path: circle(0 at calc(100% - 3.1rem) 3.25rem);
+  opacity: 0;
+  visibility: hidden;
+  /* Fechar: só desvanece (sem o círculo recolhendo, que deixava rastro); o clip-path reinicia depois, já invisível. */
+  transition: opacity .25s ease, clip-path 0s linear .25s, visibility 0s linear .25s;
+}
+.menu-panel.is-open {
+  clip-path: circle(135% at calc(100% - 3.1rem) 3.25rem);
+  opacity: 1;
+  visibility: visible;
+  transition: clip-path .6s cubic-bezier(.2,.7,.2,1), opacity .2s ease, visibility 0s;
+}
+.menu-link { opacity: 0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; }
+.menu-panel.is-open .menu-link { opacity: 1; transform: none; transition: opacity .5s ease var(--d), transform .5s cubic-bezier(.2,.7,.2,1) var(--d); }
+@media (prefers-reduced-motion: reduce) {
+  .menu-panel, .menu-panel.is-open, .menu-link, .menu-panel.is-open .menu-link { transition: none; }
+}
