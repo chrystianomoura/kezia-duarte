@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+// Sem `src`, mostra o placeholder. Com `src`, a foto preenche a forma (arco, cantos arredondados...).
+interface Props {
+  shape?: 'arch' | 'round' | 'soft' | 'blob';
+  class?: string;
+  tone?: 'nevoa' | 'salvia' | 'sereno';
+  label?: string;
+  src?: ImageMetadata;
+  alt?: string;
+  position?: string;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+}
+const { shape = 'arch', class: cls = '', tone = 'nevoa', label = 'foto', src, alt = '', position = '55% 30%', sizes = '(min-width: 1024px) 400px, 90vw', loading = 'lazy' } = Astro.props;
+const radius = {
+  arch: 'rounded-t-[999px] rounded-b-3xl',
+  round: 'rounded-full',
+  soft: 'rounded-[2.5rem]',
+  blob: 'rounded-[60%_40%_55%_45%/45%_55%_45%_55%]',
+}[shape];
+const bg = {
+  nevoa: 'bg-gradient-to-b from-nevoa to-[#cfdde2] text-sereno',
+  salvia: 'bg-gradient-to-b from-[#c9d8cd] to-salvia text-profundo',
+  sereno: 'bg-gradient-to-b from-sereno to-profundo text-white/80',
+}[tone];
+const pos = /\b(absolute|fixed)\b/.test(cls) ? '' : 'relative';
+---
+{src ? (
+  <div class={`${pos} overflow-hidden ${radius} bg-nevoa ${cls}`}>
+    <Image src={src} alt={alt} widths={[480, 800, 1080]} {sizes} {loading} class="h-full w-full object-cover" style={`object-position:${position}`} />
+  </div>
+) : (
+  <div class={`${pos} flex items-center justify-center overflow-hidden ${radius} ${bg} ${cls}`} role="img" aria-label="Espaço reservado para foto">
+    <svg class="h-14 w-14 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <circle cx="12" cy="8.5" r="3.5" /><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5" />
+    </svg>
+    <span class="absolute bottom-4 text-[.65rem] uppercase tracking-[.25em] opacity-60">{label}</span>
+  </div>
+)}

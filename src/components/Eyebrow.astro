@@ -1,0 +1,15 @@
+---
+// Rótulo de seção em pílula. `tone="dark"` para fundos escuros; `class` controla o alinhamento (ex.: justify-center).
+interface Props { tone?: 'light' | 'dark'; class?: string }
+const { tone = 'light', class: cls = '' } = Astro.props;
+// Tamanho único no desktop (lg+) para todas as pílulas; o celular mantém o tamanho maior.
+const size = 'lg:px-6 lg:py-2.5 lg:text-[1.05rem]';
+const pill = tone === 'light'
+  ? 'border-sereno/30 bg-nevoa text-marinho'
+  : 'border-sereno-claro/40 bg-white/10 text-white';
+---
+<div class={`flex ${cls}`}>
+  <span class={`inline-flex items-center rounded-full border px-7 py-3 text-[1.2rem] font-semibold uppercase tracking-[.18em] ${pill} ${size}`}>
+    <slot />
+  </span>
+</div>

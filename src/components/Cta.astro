@@ -1,0 +1,15 @@
+---
+import { whatsappUrl } from '../data/content';
+interface Props { variant?: 'marinho' | 'branco' | 'sereno' | 'contorno'; label: string; message?: string; class?: string }
+const { variant = 'marinho', label, message, class: cls = '' } = Astro.props;
+const styles = {
+  marinho: 'bg-marinho text-white hover:bg-profundo',
+  branco: 'bg-white text-marinho hover:bg-nevoa',
+  sereno: 'bg-sereno text-white hover:bg-profundo',
+  contorno: 'border border-marinho text-marinho hover:bg-marinho hover:text-white',
+}[variant];
+---
+<a href={whatsappUrl(message)} class={`group inline-flex items-center whitespace-nowrap gap-3 rounded-full px-7 py-4 text-[1rem] font-semibold transition-colors ${styles} ${cls}`}>
+  {label}
+  <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+</a>
