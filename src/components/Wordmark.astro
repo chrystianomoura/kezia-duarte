@@ -2,7 +2,7 @@
 import { site } from '../data/content';
 interface Props { tone?: 'dark' | 'light'; stacked?: boolean }
 const { tone = 'dark' } = Astro.props;
-const main = tone === 'dark' ? 'text-[#33383d]' : 'text-white';
+const main = tone === 'dark' ? 'text-marinho' : 'text-white';
 const sub = tone === 'dark' ? 'text-[#575d63]' : 'text-white';
 const crp = site.crp.replace('CRP ', 'CRP: ');
 ---

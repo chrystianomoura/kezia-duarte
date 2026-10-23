@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import { nav, site, whatsappUrl, messages } from '../data/content';
 interface Props { tone?: 'dark' | 'light'; class?: string }
 const { tone = 'dark', class: cls = '' } = Astro.props;
-const link = tone === 'dark' ? 'font-medium text-[#111] hover:text-sereno' : 'text-white/90 hover:text-white';
+const link = tone === 'dark' ? 'font-medium text-[#575d63] hover:text-marinho' : 'text-white/90 hover:text-white';
 const btn = tone === 'dark' ? 'bg-marinho text-white hover:bg-profundo' : 'bg-white text-marinho hover:bg-nevoa';
 ---
 <!-- Celular: marca centralizada (em telas estreitas reserva espaço à direita para o botão do menu não ficar sobre ela). Desktop: marca à esquerda, links e CTA. -->
