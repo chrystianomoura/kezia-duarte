@@ -118,16 +118,16 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Dúvidas -->
-  <section id="duvidas" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-white py-8 lg:py-16">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+  <section id="duvidas" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-nevoa py-8 lg:py-16">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[31rem_1fr] lg:gap-12">
       <div class="reveal lg:self-start">
         <Eyebrow class="justify-center lg:justify-start">Dúvidas frequentes</Eyebrow>
-        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-left lg:text-[2.4rem] xl:text-5xl"><span class="lg:block">Perguntas que costumam</span>{' '}<span class="lg:block">surgir antes do</span>{' '}<span class="lg:block">primeiro contato.</span></h2>
+        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-left lg:text-[2.5rem]"><span class="lg:block lg:whitespace-nowrap">Perguntas que costumam surgir</span>{' '}<span class="lg:block lg:whitespace-nowrap">antes do primeiro contato.</span></h2>
       </div>
       <div class="reveal divide-y divide-sereno/20 border-y border-sereno/20 [overflow-anchor:none]">
         {faq.map((f) => (
           <details class="group py-1">
-            <summary class="flex cursor-pointer select-none list-none items-center justify-between gap-6 py-5 text-left text-lg font-medium text-marinho marker:content-none [&::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer select-none list-none items-center justify-between gap-6 py-5 text-left text-[1.2rem] font-medium text-marinho sm:text-[1.3rem] marker:content-none [&::-webkit-details-marker]:hidden">
               {f.q}
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sereno/40 text-sereno transition-transform group-data-[open=true]:rotate-45" aria-hidden="true">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
@@ -141,7 +141,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Contato -->
-  <section id="contato" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-nevoa py-8 lg:py-16">
+  <section id="contato" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-creme py-8 lg:py-16">
     <div class="reveal mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[1.15fr_.85fr]">
       <div class="relative lg:left-6 min-[1400px]:left-10">
         <Eyebrow>Contato</Eyebrow>
