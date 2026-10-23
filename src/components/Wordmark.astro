@@ -2,8 +2,8 @@
 import { site } from '../data/content';
 interface Props { tone?: 'dark' | 'light'; stacked?: boolean }
 const { tone = 'dark' } = Astro.props;
-const main = tone === 'dark' ? 'text-marca' : 'text-white';
-const sub = tone === 'dark' ? 'text-marca' : 'text-white';
+const main = tone === 'dark' ? 'text-[#25506f]' : 'text-white';
+const sub = tone === 'dark' ? 'text-[#25506f]' : 'text-white';
 const letters = [...site.role.toUpperCase()];
 const crp = site.crp.replace('CRP ', 'CRP: ');
 ---

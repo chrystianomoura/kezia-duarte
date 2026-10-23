@@ -3,7 +3,7 @@ import { whatsappUrl } from '../data/content';
 interface Props { variant?: 'marinho' | 'branco' | 'sereno' | 'contorno'; label: string; message?: string; class?: string }
 const { variant = 'marinho', label, message, class: cls = '' } = Astro.props;
 const styles = {
-  marinho: 'bg-cta text-white hover:bg-cta-escuro',
+  marinho: 'bg-marinho text-white hover:bg-profundo',
   branco: 'bg-white text-marinho hover:bg-nevoa',
   sereno: 'bg-sereno text-white hover:bg-profundo',
   contorno: 'border border-marinho text-marinho hover:bg-marinho hover:text-white',

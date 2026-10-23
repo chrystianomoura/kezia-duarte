@@ -5,6 +5,7 @@ import Cta from '../components/Cta.astro';
 import Photo from '../components/Photo.astro';
 import Wordmark from '../components/Wordmark.astro';
 import kezia from '../assets/kezia.jpg';
+import sobre from '../assets/sobre.jpg';
 import contato from '../assets/contato.jpg';
 import Icon from '../components/Icon.astro';
 import Eyebrow from '../components/Eyebrow.astro';
@@ -13,13 +14,13 @@ import { hero, about, approach, sessions, faq, contact, site, nav, whatsappUrl, 
 const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
 ---
 <Base>
-  <!-- Menu mobile: o botão flutuante abre um cartão petróleo que cresce a partir do canto do botão. -->
-  <button id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-panel" class="fixed right-4 top-[26px] z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-cta text-white shadow-lg shadow-cta/30 transition-[background-color,color,right] duration-300 data-[open=true]:right-[26px] data-[open=true]:bg-white data-[open=true]:text-cta sm:top-[29px] lg:hidden">
+  <!-- Menu mobile: o botão flutuante abre um cartão marinho que cresce a partir do canto do botão. -->
+  <button id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-panel" class="fixed right-4 top-[26px] z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-marinho text-white shadow-lg shadow-marinho/30 transition-[background-color,color,right] duration-300 data-[open=true]:right-[26px] data-[open=true]:bg-white data-[open=true]:text-marinho sm:top-[29px] lg:hidden">
     <svg class="absolute h-6 w-6 transition-all duration-300 [[data-open=true]_&]:rotate-90 [[data-open=true]_&]:scale-50 [[data-open=true]_&]:opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
     <svg class="absolute h-7 w-7 -rotate-90 scale-50 opacity-0 transition-all duration-300 [[data-open=true]_&]:rotate-0 [[data-open=true]_&]:scale-100 [[data-open=true]_&]:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
   </button>
-  <div id="menu-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-cta/40 opacity-0 transition-opacity duration-500 lg:hidden"></div>
-  <nav id="menu-panel" aria-label="Menu" aria-hidden="true" inert class="menu-panel fixed inset-x-3 top-3 z-50 overflow-hidden rounded-[2rem] bg-cta px-7 pb-6 pt-3 text-white shadow-2xl shadow-cta/40 lg:hidden">
+  <div id="menu-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-marinho/40 opacity-0 transition-opacity duration-500 lg:hidden"></div>
+  <nav id="menu-panel" aria-label="Menu" aria-hidden="true" inert class="menu-panel fixed inset-x-3 top-3 z-50 overflow-hidden rounded-[2rem] bg-marinho px-7 pb-6 pt-3 text-white shadow-2xl shadow-marinho/40 lg:hidden">
     <ul class="relative mx-auto w-fit divide-y divide-white/20 text-center">
       {nav.map((i, n) => (
         <li>
@@ -38,7 +39,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
     <Nav />
     <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center gap-7 px-5 pt-4 text-center sm:px-8 lg:grid lg:grid-cols-[1.1fr_.9fr] pb-8 lg:content-center lg:items-center lg:gap-12 lg:pb-10 lg:pt-16 lg:text-left">
       <div class="w-full">
-        <h1 class="rise rise-2 text-balance font-display text-5xl font-normal italic leading-[1.06] text-marca sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
+        <h1 class="rise rise-2 text-balance font-display text-5xl font-normal italic leading-[1.06] text-[#25506f] sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
           <span class="sm:block">Você não precisa ter</span>{' '}
           <span class="sm:block">todas as respostas</span>{' '}
           <em class="font-normal sm:block">para começar</em>{' '}
@@ -60,7 +61,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Quem sou -->
-  <section id="sobre" class="scroll-mt-0 bg-nevoa py-8 lg:pb-10 lg:pt-8">
+  <section id="sobre" class="scroll-mt-0 bg-creme py-8 lg:pb-10 lg:pt-8">
     <!-- Desktop: rótulo e título centralizados na página; abaixo, foto e texto lado a lado, alinhados pelo centro. -->
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-x-12">
       <div class="order-1 lg:col-span-2 lg:row-start-1">
@@ -68,24 +69,24 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
         <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl">{aboutBefore}Kezia Duarte{aboutAfter}</h2>
       </div>
       <div class="reveal order-2 mx-auto w-full max-w-sm lg:col-start-2 lg:row-start-2 lg:max-w-none">
-        <div class="space-y-4 text-pretty lg:space-y-6 lg:rounded-[2rem] lg:bg-white lg:p-10">
-          {about.paragraphs.map((p) => <p class="body-text rounded-[1.75rem] bg-white px-6 py-5 sm:px-8 sm:py-6 lg:rounded-none lg:bg-transparent lg:p-0">{p}</p>)}
+        <div class="space-y-4 text-pretty lg:space-y-6 lg:rounded-[2rem] lg:bg-verde-claro lg:p-10">
+          {about.paragraphs.map((p) => <p class="body-text rounded-[1.75rem] bg-verde-claro px-6 py-5 sm:px-8 sm:py-6 lg:rounded-none lg:bg-transparent lg:p-0">{p}</p>)}
         </div>
       </div>
       <div class="reveal order-3 relative mx-auto w-full max-w-sm lg:col-start-1 lg:row-start-2 lg:max-w-none lg:self-stretch">
         <div class="rounded-[2.75rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:hidden">
-          <Photo shape="soft" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="55% 25%" class="aspect-[4/5] w-full" />
+          <Photo shape="soft" src={sobre} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="50% 32%" class="aspect-[4/5] w-full" />
         </div>
         <!-- Desktop: foto em moldura branca, esticada até a altura do card de texto. -->
         <div class="hidden h-full rounded-[3.25rem] bg-moldura p-3 shadow-xl shadow-profundo/10 lg:block">
-          <Photo shape="soft" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="52% 25%" class="h-full w-full" />
+          <Photo shape="soft" src={sobre} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="50% 32%" class="h-full w-full" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Abordagem -->
-  <section id="abordagem" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-oliva py-8 text-white lg:py-24">
+  <section id="abordagem" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-marinho py-8 text-white lg:py-24">
     <div class="reveal mx-auto max-w-4xl px-5 text-center sm:px-8">
       <Eyebrow tone="dark" class="justify-center">Minha abordagem</Eyebrow>
       <h2 class="mt-4 text-balance font-display text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-6xl">{approach.title}</h2>
@@ -96,7 +97,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Psicoterapia -->
-  <section id="psicoterapia" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-bruma py-8 lg:py-24">
+  <section id="psicoterapia" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-creme py-8 lg:py-24">
     <div class="mx-auto max-w-6xl px-5 sm:px-8">
       <div class="reveal mx-auto max-w-3xl text-center">
         <Eyebrow class="justify-center">Psicoterapia</Eyebrow>
@@ -105,8 +106,8 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
       </div>
       <ul class="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
         {sessions.cards.map((c) => (
-          <li class="reveal rounded-3xl border border-sereno/20 bg-white p-8 text-center shadow-sm shadow-profundo/5">
-            <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-bruma text-marinho"><Icon name={c.icon as any} class="h-7 w-7" /></span>
+          <li class="reveal rounded-3xl border border-verde/20 bg-verde-claro p-8 text-center shadow-sm shadow-profundo/5">
+            <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-verde"><Icon name={c.icon as any} class="h-7 w-7" /></span>
             <h3 class="mt-5 text-balance font-display text-[1.4rem] font-semibold leading-tight text-marinho" set:html={c.title.replace(/(\S+-\S+)/g, '<span class="whitespace-nowrap">$1</span>')} />
             <p class="body-text mt-3 text-balance">{c.text}</p>
           </li>
@@ -154,7 +155,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
           ].map((c) => (
             <li>
               <a href={c.href} class="group inline-flex items-center gap-4 text-lg font-medium text-marinho transition-colors hover:text-sereno sm:text-xl">
-                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-sereno shadow-sm shadow-profundo/10 transition-colors group-hover:bg-marinho group-hover:text-white"><Icon name={c.icon as any} class={c.icon === 'whatsapp' ? 'h-6 w-6' : 'h-[26px] w-[26px]'} /></span>                <span class="break-all">{c.label}</span>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white bg-marinho text-white shadow-sm shadow-profundo/10 transition-colors group-hover:bg-profundo"><Icon name={c.icon as any} class={c.icon === 'whatsapp' ? 'h-6 w-6' : 'h-[26px] w-[26px]'} /></span>                <span class="break-all">{c.label}</span>
               </a>
             </li>
           ))}

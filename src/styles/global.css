@@ -1,21 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta enxuta: ardósia (azul), azul-gelo, sálvia clara e branco. Cada cor tem seu lugar:
-     ardósia = marca, títulos e rodapé; oliva = seção escura "Minha abordagem"; petróleo = botões e menu; azul-gelo = hero e "Psicoterapia";
-     sálvia clara = "Sobre" e "Contato"; branco = cartões, molduras e "Dúvidas".
-     Os nomes `marinho`, `sereno`, `nevoa`... vêm da paleta anterior; as funções continuam as mesmas. */
-  --color-marinho: #4d6474;       /* ardósia: seções escuras, rodapé, títulos, ícones (branco sobre ele: ~6:1) */
-  --color-marca: #33495a;         /* ardósia profunda: logo, menu e título da hero */
-  --color-profundo: #2c3a45;      /* sombras e textos de apoio */
-  --color-sereno: #4d6474;        /* detalhes: bordas e ícones (mesma ardósia) */
-  --color-sereno-claro: #dfe8ef;  /* azul-gelo sobre fundo escuro (contraste AA) */
-  --color-cta: #2f5d66;           /* verde-petróleo: ponte entre o azul e o verde da paleta; botões e menu (branco sobre ele: ~7,3:1) */
-  --color-oliva: #575e4b;         /* oliva: fundo da seção "Minha abordagem" (branco sobre ele: ~6,8:1) */
-  --color-cta-escuro: #244a52;    /* botões no hover */
-  --color-bruma: #dfe8ef;         /* azul-gelo: hero e "Psicoterapia" */
-  --color-nevoa: #e8eee2;         /* sálvia clara: "Sobre" e "Contato" */
-  --color-moldura: #ffffff;       /* molduras das fotos */
+  /* Identidade azul suavizada: o marinho forte (#1f2f66) virou um azul médio, e o azul sereno da Kezia segue como acento.
+     Fundo da hero em creme para quebrar o azul. */
+  --color-marinho: #3a6585;       /* azul-aço: marca, títulos, seções escuras, rodapé (branco sobre ele: ~6:1) */
+  --color-profundo: #2f4f63;      /* texto corrido */
+  --color-sereno: #547c96;        /* acento: título da hero, subtítulos, ícones */
+  --color-sereno-claro: #cfe2ee;  /* acento sobre fundo escuro (contraste AA) */
+  --color-salvia: #8da995;        /* sálvia original da Kezia */
+  --color-verde-claro: #dfe9e2;   /* sálvia clara: fundos de detalhes (chips, pílulas) */
+  --color-verde: #5b7b66;         /* sálvia escura: ícones e texto verde (branco sobre ele: ~4,8:1) */
+  --color-verde-escuro: #46634f;  /* verde para texto sobre sálvia clara (contraste ~5,4:1) */
+  --color-bruma: #e8f0f2;         /* fundo da hero: o mesmo da seção de contato */
+  --color-nevoa: #e8f0f2;         /* fundos claros */
+  --color-moldura: #ffffff;       /* moldura das fotos  */
+  --color-creme: #f6f3ec;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Figtree", system-ui, sans-serif;
@@ -46,7 +45,7 @@ body { font-family: var(--font-sans); color: var(--color-profundo); background: 
   .body-text {
     font-size: 1.2rem;
     line-height: 1.75;
-    color: #1b242b;
+    color: #17252f;
     text-wrap: pretty;
   }
 }
