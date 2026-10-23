@@ -16,13 +16,13 @@ const approachKey = 'sua singularidade';
 const [approachBefore, approachAfter] = approach.title.split(approachKey);
 ---
 <Base>
-  <!-- Menu (mobile e desktop): o botão flutuante abre um cartão marinho que cresce a partir do canto do botão. -->
-  <button id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-panel" class="fixed right-4 top-[26px] z-[60] lg:right-12 flex h-14 w-14 items-center justify-center rounded-full bg-marinho text-white shadow-lg shadow-marinho/30 transition-[background-color,color,right] duration-300 data-[open=true]:right-[26px] lg:data-[open=true]:right-[3.6rem] data-[open=true]:bg-white data-[open=true]:text-marinho sm:top-[29px]">
+  <!-- Menu mobile: o botão flutuante abre um cartão marinho que cresce a partir do canto do botão. -->
+  <button id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-panel" class="fixed right-4 top-[26px] z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-marinho text-white shadow-lg shadow-marinho/30 transition-[background-color,color,right] duration-300 data-[open=true]:right-[26px] data-[open=true]:bg-white data-[open=true]:text-marinho sm:top-[29px] lg:hidden">
     <svg class="absolute h-6 w-6 transition-all duration-300 [[data-open=true]_&]:rotate-90 [[data-open=true]_&]:scale-50 [[data-open=true]_&]:opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
     <svg class="absolute h-7 w-7 -rotate-90 scale-50 opacity-0 transition-all duration-300 [[data-open=true]_&]:rotate-0 [[data-open=true]_&]:scale-100 [[data-open=true]_&]:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
   </button>
-  <div id="menu-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-marinho/40 opacity-0 transition-opacity duration-500"></div>
-  <nav id="menu-panel" aria-label="Menu" aria-hidden="true" inert class="menu-panel fixed inset-x-3 top-3 z-50 overflow-hidden rounded-[2rem] bg-marinho px-7 pb-6 pt-3 text-white shadow-2xl shadow-marinho/40 lg:inset-x-auto lg:right-[2.75rem] lg:w-[26rem]">
+  <div id="menu-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-marinho/40 opacity-0 transition-opacity duration-500 lg:hidden"></div>
+  <nav id="menu-panel" aria-label="Menu" aria-hidden="true" inert class="menu-panel fixed inset-x-3 top-3 z-50 overflow-hidden rounded-[2rem] bg-marinho px-7 pb-6 pt-3 text-white shadow-2xl shadow-marinho/40 lg:hidden">
     <ul class="relative mx-auto w-fit divide-y divide-white/20 text-center">
       {nav.map((i, n) => (
         <li>
@@ -39,13 +39,13 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
   <!-- Início -->
   <section id="inicio" class="relative flex min-h-[100svh] flex-col overflow-hidden bg-bruma">
     <Nav />
-    <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center gap-7 px-5 pt-4 text-center sm:px-8 lg:grid lg:grid-cols-[1.1fr_.9fr] pb-8 lg:grid-rows-1 lg:items-center lg:gap-12 lg:pb-10 lg:pt-40 lg:text-left">
+    <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center gap-7 px-5 pt-4 text-center sm:px-8 lg:grid lg:grid-cols-[1.1fr_.9fr] pb-8 lg:content-center lg:items-center lg:gap-12 lg:pb-10 lg:pt-16 lg:text-left">
       <div class="w-full">
-        <h1 class="rise rise-2 text-balance font-display text-5xl font-normal italic leading-[1.06] text-[#111] sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
+        <h1 class="rise rise-2 text-balance font-display text-5xl font-semibold italic leading-[1.06] text-[#111] sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
           <span class="sm:block">Você não precisa ter</span>{' '}
           <span class="sm:block">todas as respostas</span>{' '}
-          <em class="font-normal sm:block">para começar</em>{' '}
-          <em class="font-normal sm:block">a se escutar.</em>
+          <em class="sm:block">para começar</em>{' '}
+          <em class="sm:block">a se escutar.</em>
         </h1>
         <p class="rise rise-3 body-text mx-auto mt-6 max-w-xl text-balance lg:mx-0 lg:mt-7">{hero.text}</p>
         <div class="rise rise-4 mt-7 flex justify-center lg:mt-9 lg:justify-start">
@@ -53,9 +53,9 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
         </div>
       </div>
       <!-- Foto original dentro de uma moldura branca em arco (mobile e desktop). -->
-      <div class="rise rise-3 relative mx-auto w-full max-w-sm lg:-mt-32 lg:mx-0 lg:flex lg:max-w-none lg:flex-col lg:items-center lg:justify-center lg:self-stretch lg:[container-type:size] xl:left-6">
-        <!-- Desktop: a foto ocupa toda a altura da hero; a marca fica no topo à esquerda, sobreposta. -->
-        <div class="relative rounded-t-[999px] rounded-b-[2rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:min-h-0 lg:max-h-[133cqw] lg:flex-1 lg:aspect-[3/4] lg:p-3">
+      <div class="rise rise-3 relative mx-auto w-full max-w-sm lg:mx-0 lg:flex lg:max-w-none lg:items-stretch lg:justify-center lg:self-stretch lg:[contain:size] xl:left-6">
+        <!-- Desktop: a moldura tem a altura do bloco de texto (do título ao botão), então topo e fundo ficam alinhados. -->
+        <div class="relative rounded-t-[999px] rounded-b-[2rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:aspect-[3/4] lg:h-full lg:p-3">
           <Photo shape="arch" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="55% 22%" loading="eager" class="aspect-[3/4] w-full lg:h-full lg:aspect-auto" />
         </div>
       </div>
@@ -179,7 +179,7 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
   <footer class="bg-marinho text-white">
     <div class="mx-auto max-w-6xl px-5 sm:px-8">
       <div class="flex flex-col gap-7 py-9 md:flex-row md:items-center md:justify-between">
-        <div class="flex justify-center md:justify-start"><div class="rounded-2xl bg-white px-5 py-3.5 shadow-sm shadow-profundo/10 lg:px-6"><Wordmark /></div></div>
+        <div class="flex justify-center md:justify-start"><Wordmark tone="light" /></div>
         <nav aria-label="Rodapé">
           <ul class="mx-auto grid w-full max-w-[21rem] grid-cols-2 gap-3 sm:w-fit sm:max-w-none sm:grid-cols-3">
             {nav.map((i) => (
@@ -280,5 +280,6 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
     backdrop.addEventListener('click', () => set(false));
     panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
     addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+    matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) set(false); });
   })();
 </script>

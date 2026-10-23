@@ -4,14 +4,11 @@ interface Props { tone?: 'dark' | 'light'; stacked?: boolean }
 const { tone = 'dark' } = Astro.props;
 const main = tone === 'dark' ? 'text-[#33383d]' : 'text-white';
 const sub = tone === 'dark' ? 'text-[#575d63]' : 'text-white';
-const letters = [...site.role.toUpperCase()];
 const crp = site.crp.replace('CRP ', 'CRP: ');
 ---
-<!-- A largura do bloco é a do nome; a linha do cargo distribui as letras até as duas bordas e o CRP fica centralizado. -->
+<!-- A largura do bloco é a do nome; o cargo e o CRP são menores e ficam centralizados abaixo dele. -->
 <a href="#inicio" class="inline-flex flex-col leading-none" aria-label={`${site.name}, ${site.role}, ${site.crp}`}>
   <span aria-hidden="true" class={`font-display text-[2.5rem] font-medium tracking-tight sm:text-[2.9rem] ${main}`}>{site.name}</span>
-  <span aria-hidden="true" class={`mt-0.5 flex justify-between text-[.74rem] font-semibold sm:text-[.8rem] sm:font-medium ${sub}`}>
-    {letters.map((c) => (c === ' ' ? <span class="w-[.7em]"></span> : <span>{c}</span>))}
-  </span>
-  <span aria-hidden="true" class={`mt-[.36rem] sm:mt-[.42rem] text-center text-[.74rem] font-semibold tracking-[.2em] sm:text-[.8rem] sm:font-medium ${sub}`}>{crp.toUpperCase()}</span>
+  <span aria-hidden="true" class={`mt-[.12rem] sm:mt-0 pl-[.2em] text-center text-[.7rem] font-semibold tracking-[.2em] sm:text-[.76rem] sm:font-medium ${sub}`}>{site.role.toUpperCase()}</span>
+  <span aria-hidden="true" class={`mt-[.33rem] pl-[.2em] text-center text-[.7rem] font-semibold tracking-[.2em] sm:text-[.76rem] sm:font-medium ${sub}`}>{crp.toUpperCase()}</span>
 </a>
