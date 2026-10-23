@@ -152,14 +152,14 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
       <div class="relative rounded-[2rem] bg-white p-6 shadow-sm shadow-profundo/5 sm:p-10 lg:rounded-none lg:bg-transparent lg:p-9 lg:shadow-none">
         <h2 class="font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-[3.4rem]">{contact.title}</h2>
         <p class="body-text mt-6 max-w-xl text-balance">{contact.text}</p>
-        <div class="mt-9 flex justify-center"><Cta label={contact.cta} message={messages.contact} /></div>
-        <ul class="mt-10 grid grid-cols-2 gap-x-4 gap-y-5 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-10 sm:gap-y-4">
+        <div class="mt-9 flex justify-center lg:justify-start"><Cta label={contact.cta} message={messages.contact} /></div>
+        <ul class="mt-10 grid grid-cols-2 gap-x-4 gap-y-5 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-10 sm:gap-y-4 lg:flex-col lg:items-start lg:justify-start">
           {[
             { icon: 'whatsapp', label: site.whatsappLabel, href: whatsappUrl() },
             { icon: 'instagram', label: `@${site.instagram}`, href: `https://instagram.com/${site.instagram}` },
             { icon: 'mail', label: site.email, href: `mailto:${site.email}` },
           ].map((c) => (
-            <li class={`text-center sm:text-left ${c.icon === 'mail' ? 'col-span-2 sm:flex sm:basis-full sm:justify-center' : ''}`}>
+            <li class={`text-center sm:text-left ${c.icon === 'mail' ? 'col-span-2 sm:flex sm:basis-full sm:justify-center lg:basis-auto lg:justify-start' : ''}`}>
               <a href={c.href} class={`group inline-flex text-lg font-medium text-verde-escuro transition-colors hover:text-verde sm:text-xl flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left`}>
                 <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-verde/30 bg-verde-claro text-verde-escuro transition-colors group-hover:bg-verde group-hover:text-white"><Icon name={c.icon as any} class={c.icon === 'whatsapp' ? 'h-6 w-6' : 'h-[26px] w-[26px]'} /></span>                <span class="break-all">{c.label}</span>
               </a>
