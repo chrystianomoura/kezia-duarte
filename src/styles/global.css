@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta enviada pela Kezia */
-  --color-sereno: #547c96;
-  --color-salvia: #8da995;
-  --color-sereno-claro: #a3c4d8; /* azul sereno para texto sobre fundo escuro (contraste AA) */
-  --color-nevoa: #e8f0f2;
-  --color-profundo: #344f5c;
-  /* Extras puxados do Instagram dela */
-  --color-marinho: #1f2f66;
+  /* Identidade azul suavizada: o marinho forte (#1f2f66) virou um azul médio, e o azul sereno da Kezia segue como acento.
+     Fundo da hero em creme para quebrar o azul. */
+  --color-marinho: #3a6585;       /* azul-aço: marca, títulos, seções escuras, rodapé (branco sobre ele: ~6:1) */
+  --color-profundo: #2f4f63;      /* texto corrido */
+  --color-sereno: #547c96;        /* acento: título da hero, subtítulos, ícones */
+  --color-sereno-claro: #cfe2ee;  /* acento sobre fundo escuro (contraste AA) */
+  --color-salvia: #8da995;        /* sálvia original da Kezia */
+  --color-bruma: #e8f0f2;         /* fundo da hero: o mesmo da seção de contato */
+  --color-nevoa: #e8f0f2;         /* fundos claros */
+  --color-moldura: #ffffff;       /* moldura das fotos  */
   --color-creme: #f6f3ec;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -40,7 +42,7 @@ body { font-family: var(--font-sans); color: var(--color-profundo); background: 
   .body-text {
     font-size: 1.2rem;
     line-height: 1.75;
-    color: #111;
+    color: #17252f;
     text-wrap: pretty;
   }
 }

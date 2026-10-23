@@ -3,12 +3,11 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Cta from '../components/Cta.astro';
 import Photo from '../components/Photo.astro';
-import Leaf from '../components/Leaf.astro';
 import Wordmark from '../components/Wordmark.astro';
 import kezia from '../assets/kezia.jpg';
+import contato from '../assets/contato.jpg';
 import Icon from '../components/Icon.astro';
 import Eyebrow from '../components/Eyebrow.astro';
-import Scribble from '../components/Scribble.astro';
 
 import { hero, about, approach, sessions, faq, contact, site, nav, whatsappUrl, messages } from '../data/content';
 const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
@@ -21,7 +20,6 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </button>
   <div id="menu-backdrop" class="pointer-events-none fixed inset-0 z-40 bg-marinho/40 opacity-0 transition-opacity duration-500 lg:hidden"></div>
   <nav id="menu-panel" aria-label="Menu" aria-hidden="true" inert class="menu-panel fixed inset-x-3 top-3 z-50 overflow-hidden rounded-[2rem] bg-marinho px-7 pb-6 pt-3 text-white shadow-2xl shadow-marinho/40 lg:hidden">
-    <Leaf class="pointer-events-none absolute -bottom-px right-5 h-40 -scale-x-100 text-sereno/45" />
     <ul class="relative mx-auto w-fit divide-y divide-white/20 text-center">
       {nav.map((i, n) => (
         <li>
@@ -36,17 +34,15 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
     </div>
   </nav>
   <!-- Início -->
-  <section id="inicio" class="relative flex min-h-[100svh] flex-col overflow-hidden bg-nevoa">
-    <Leaf class="pointer-events-none absolute bottom-0 left-3 hidden h-56 text-salvia/60 min-[1400px]:block" />
-    <Leaf class="pointer-events-none absolute right-3 top-0 hidden h-56 rotate-180 text-salvia/60 min-[1400px]:block" />
+  <section id="inicio" class="relative flex min-h-[100svh] flex-col overflow-hidden bg-bruma">
     <Nav />
-    <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center gap-7 px-5 pt-4 text-center sm:px-8 lg:grid lg:grid-cols-[1.1fr_.9fr] pb-8 lg:items-center lg:gap-12 lg:pb-10 lg:pt-16 lg:text-left">
+    <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center gap-7 px-5 pt-4 text-center sm:px-8 lg:grid lg:grid-cols-[1.1fr_.9fr] pb-8 lg:content-center lg:items-center lg:gap-12 lg:pb-10 lg:pt-16 lg:text-left">
       <div class="w-full">
-        <h1 class="rise rise-2 text-balance font-display text-5xl font-medium leading-[1.06] text-marinho sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
+        <h1 class="rise rise-2 text-balance font-display text-5xl font-normal italic leading-[1.06] text-[#25506f] sm:text-6xl lg:text-[3.6rem] xl:text-7xl">
           <span class="sm:block">Você não precisa ter</span>{' '}
           <span class="sm:block">todas as respostas</span>{' '}
-          <em class="font-normal text-sereno sm:block">para começar</em>{' '}
-          <em class="font-normal text-sereno sm:block">a se escutar.</em>
+          <em class="font-normal sm:block">para começar</em>{' '}
+          <em class="font-normal sm:block">a se escutar.</em>
         </h1>
         <p class="rise rise-3 body-text mx-auto mt-6 max-w-xl text-balance lg:mx-0 lg:mt-7">{hero.text}</p>
         <div class="rise rise-4 mt-7 flex justify-center lg:mt-9 lg:justify-start">
@@ -54,21 +50,22 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
         </div>
       </div>
       <!-- Foto original dentro de uma moldura branca em arco (mobile e desktop). -->
-      <div class="rise rise-3 relative mx-auto w-full max-w-sm lg:-top-6 lg:max-w-md lg:flex-none xl:left-6 xl:max-w-[30rem]">
-        <div class="relative rounded-t-[999px] rounded-b-[2rem] bg-white p-2.5 shadow-xl shadow-profundo/10 lg:p-3">
-          <Photo shape="arch" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="55% 22%" loading="eager" class="aspect-[3/4] w-full" />
+      <div class="rise rise-3 relative mx-auto w-full max-w-sm lg:mx-0 lg:flex lg:max-w-none lg:items-stretch lg:justify-center lg:self-stretch lg:[contain:size] xl:left-6">
+        <!-- Desktop: a moldura tem a altura do bloco de texto (do título ao botão), então topo e fundo ficam alinhados. -->
+        <div class="relative rounded-t-[999px] rounded-b-[2rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:aspect-[3/4] lg:h-full lg:p-3">
+          <Photo shape="arch" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="55% 22%" loading="eager" class="aspect-[3/4] w-full lg:h-full lg:aspect-auto" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Quem sou -->
-  <section id="sobre" class="scroll-mt-4 bg-creme py-8 lg:pb-10 lg:pt-8">
+  <section id="sobre" class="scroll-mt-0 bg-creme py-8 lg:pb-10 lg:pt-8">
     <!-- Desktop: rótulo e título centralizados na página; abaixo, foto e texto lado a lado, alinhados pelo centro. -->
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-x-12">
       <div class="order-1 lg:col-span-2 lg:row-start-1">
         <Eyebrow class="justify-center">Sobre mim</Eyebrow>
-        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl">{aboutBefore}<span class="relative inline-block">Kezia Duarte<Scribble class="absolute inset-x-0 -bottom-[5px] hidden h-3 w-full text-sereno lg:block" /></span>{aboutAfter}</h2>
+        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl">{aboutBefore}Kezia Duarte{aboutAfter}</h2>
       </div>
       <div class="reveal order-2 mx-auto w-full max-w-sm lg:col-start-2 lg:row-start-2 lg:max-w-none">
         <div class="space-y-4 text-pretty lg:space-y-6 lg:rounded-[2rem] lg:bg-white lg:p-10">
@@ -76,11 +73,11 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
         </div>
       </div>
       <div class="reveal order-3 relative mx-auto w-full max-w-sm lg:col-start-1 lg:row-start-2 lg:max-w-none lg:self-stretch">
-        <div class="rounded-[2.75rem] bg-white p-2.5 shadow-xl shadow-profundo/10 lg:hidden">
+        <div class="rounded-[2.75rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:hidden">
           <Photo shape="soft" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="55% 25%" class="aspect-[4/5] w-full" />
         </div>
         <!-- Desktop: foto em moldura branca, esticada até a altura do card de texto. -->
-        <div class="hidden h-full rounded-[3.25rem] bg-white p-3 shadow-xl shadow-profundo/10 lg:block">
+        <div class="hidden h-full rounded-[3.25rem] bg-moldura p-3 shadow-xl shadow-profundo/10 lg:block">
           <Photo shape="soft" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" position="52% 25%" class="h-full w-full" />
         </div>
       </div>
@@ -88,9 +85,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Abordagem -->
-  <section id="abordagem" class="relative scroll-mt-4 overflow-hidden bg-marinho py-8 text-white lg:py-24">
-    <Leaf class="pointer-events-none absolute right-3 top-0 hidden h-64 -scale-y-100 text-sereno/50 sm:block lg:hidden xl:block" />
-    <Leaf class="pointer-events-none absolute bottom-0 left-3 hidden h-64 -scale-x-100 text-sereno/50 sm:block lg:hidden xl:block" />
+  <section id="abordagem" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-marinho py-8 text-white lg:py-24">
     <div class="reveal mx-auto max-w-4xl px-5 text-center sm:px-8">
       <Eyebrow tone="dark" class="justify-center">Minha abordagem</Eyebrow>
       <h2 class="mt-4 text-balance font-display text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-6xl">{approach.title}</h2>
@@ -101,14 +96,12 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Psicoterapia -->
-  <section id="psicoterapia" class="relative scroll-mt-4 overflow-hidden bg-creme py-8 lg:py-24">
-    <Leaf class="pointer-events-none absolute right-3 top-0 hidden h-56 rotate-180 text-salvia/60 xl:block" />
-    <Leaf class="pointer-events-none absolute bottom-0 left-3 hidden h-56 text-salvia/60 xl:block" />
+  <section id="psicoterapia" class="relative scroll-mt-0 lg:scroll-mt-[-4rem] overflow-hidden bg-creme py-8 lg:py-24">
     <div class="mx-auto max-w-6xl px-5 sm:px-8">
       <div class="reveal mx-auto max-w-3xl text-center">
         <Eyebrow class="justify-center">Psicoterapia</Eyebrow>
         <h2 class="mt-4 font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl">{sessions.title}</h2>
-        <p class="body-text mt-6 text-left lg:text-center">{sessions.text}</p>
+        <p class="body-text mt-6 text-center sm:text-left lg:text-center">{sessions.text}</p>
       </div>
       <ul class="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
         {sessions.cards.map((c) => (
@@ -124,9 +117,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Dúvidas -->
-  <section id="duvidas" class="relative scroll-mt-4 overflow-hidden bg-white py-8 lg:py-16">
-    <Leaf class="pointer-events-none absolute right-3 top-0 hidden h-56 rotate-180 text-salvia/60 min-[1400px]:block" />
-    <Leaf class="pointer-events-none absolute bottom-0 left-3 hidden h-56 text-salvia/60 min-[1400px]:block" />
+  <section id="duvidas" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-white py-8 lg:py-16">
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
       <div class="reveal lg:self-start">
         <Eyebrow class="justify-center lg:justify-start">Dúvidas frequentes</Eyebrow>
@@ -149,9 +140,7 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
   </section>
 
   <!-- Contato -->
-  <section id="contato" class="relative scroll-mt-4 overflow-hidden bg-nevoa py-8 lg:py-16">
-    <Leaf class="pointer-events-none absolute right-3 top-0 hidden h-56 rotate-180 text-salvia/60 min-[1400px]:block" />
-    <Leaf class="pointer-events-none absolute bottom-0 left-3 hidden h-56 text-salvia/60 min-[1400px]:block" />
+  <section id="contato" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-nevoa py-8 lg:py-16">
     <div class="reveal mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[1.15fr_.85fr]">
       <div class="relative lg:left-6 min-[1400px]:left-10">
         <h2 class="font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-6xl">{contact.title}</h2>
@@ -171,9 +160,10 @@ const [aboutBefore, aboutAfter] = about.title.split('Kezia Duarte');
           ))}
         </ul>
       </div>
-      <div class="relative mx-auto w-full max-w-xs lg:max-w-[26rem]">
-        <div class="absolute -right-4 -top-4 h-full w-full rounded-t-[999px] rounded-b-3xl bg-sereno/75"></div>
-        <Photo shape="arch" src={kezia} alt="Kezia Duarte, psicóloga clínica, sorrindo" class="aspect-[3/4] w-full shadow-xl shadow-profundo/10" />
+      <div class="relative order-first mx-auto w-full max-w-sm lg:order-none lg:max-w-[31rem]">
+        <div class="rounded-[2rem] bg-moldura p-2.5 shadow-xl shadow-profundo/10 lg:p-3">
+          <Photo shape="soft" src={contato} alt="Consultório acolhedor, com duas poltronas, mesa de centro e luz suave" position="50% 50%" class="aspect-square w-full" />
+        </div>
       </div>
     </div>
   </section>
