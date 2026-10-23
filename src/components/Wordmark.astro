@@ -2,8 +2,8 @@
 import { site } from '../data/content';
 interface Props { tone?: 'dark' | 'light'; stacked?: boolean }
 const { tone = 'dark' } = Astro.props;
-const main = tone === 'dark' ? 'text-marinho' : 'text-white';
-const sub = tone === 'dark' ? 'text-[#575d63]' : 'text-white';
+const main = tone === 'dark' ? 'text-marinho lg:text-white' : 'text-white';
+const sub = tone === 'dark' ? 'text-[#575d63] lg:text-white' : 'text-white';
 const crp = site.crp.replace('CRP ', 'CRP: ');
 ---
 <!-- A largura do bloco é a do nome; o cargo e o CRP são menores e ficam centralizados abaixo dele. -->
