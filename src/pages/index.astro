@@ -122,17 +122,17 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
 
   <!-- Dúvidas -->
   <section id="duvidas" class="relative scroll-mt-0 lg:scroll-mt-[-2rem] overflow-hidden bg-nevoa py-8 lg:py-16">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:max-w-7xl lg:grid-cols-[31rem_1fr] lg:gap-12">
-      <div class="reveal lg:self-start">
-        <Eyebrow class="justify-center lg:justify-start">Dúvidas frequentes</Eyebrow>
-        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-left lg:text-[2.5rem]"><span class="lg:block lg:whitespace-nowrap">Perguntas que costumam surgir</span>{' '}<span class="lg:block lg:whitespace-nowrap">antes do primeiro contato.</span></h2>
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-5 sm:px-8 lg:gap-10">
+      <div class="reveal">
+        <Eyebrow class="justify-center">Dúvidas frequentes</Eyebrow>
+        <h2 class="mt-4 text-balance text-center font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-[3.4rem]"><span class="lg:block lg:whitespace-nowrap">Perguntas que costumam surgir</span>{' '}<span class="lg:block lg:whitespace-nowrap">antes do primeiro contato.</span></h2>
       </div>
-      <div class="reveal divide-y divide-sereno/20 border-y border-sereno/20 [overflow-anchor:none]">
+      <div class="reveal mx-auto grid w-full max-w-[50rem] items-start gap-3 [overflow-anchor:none] lg:gap-4">
         {faq.map((f) => (
-          <details class="group py-1">
-            <summary class="flex cursor-pointer select-none list-none items-center justify-between gap-6 py-5 text-left text-[1.2rem] font-medium text-marinho sm:text-[1.3rem] marker:content-none [&::-webkit-details-marker]:hidden">
-              {f.q}
-              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sereno/40 text-sereno transition-transform group-data-[open=true]:rotate-45" aria-hidden="true">
+          <details class="group rounded-2xl bg-white px-5 py-1 shadow-sm shadow-profundo/5 lg:px-6">
+            <summary class="flex cursor-pointer select-none list-none items-center justify-center gap-4 py-5 text-center text-balance text-[1.2rem] font-medium text-marinho sm:justify-between sm:gap-6 sm:text-left sm:text-pretty sm:text-[1.3rem] marker:content-none [&::-webkit-details-marker]:hidden">
+              <span>{f.q.slice(0, f.q.lastIndexOf(' ') + 1)}<span class="whitespace-nowrap">{f.q.slice(f.q.lastIndexOf(' ') + 1)}<span class="ml-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-verde/30 bg-verde-claro align-[-3px] text-verde-escuro sm:hidden" aria-hidden="true"><svg class="h-3.5 w-3.5 transition-transform duration-300 group-data-[open=true]:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5.5 13.5 12 20l6.5-6.5" /></svg></span></span></span>
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-sereno/40 text-sereno transition-transform group-data-[open=true]:rotate-45 max-sm:hidden" aria-hidden="true">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14" /></svg>
               </span>
             </summary>
@@ -148,7 +148,7 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
     <div class="reveal mx-auto max-w-6xl px-5 sm:px-8 lg:max-w-7xl">
       <Eyebrow class="justify-center">Contato</Eyebrow>
     <!-- Desktop: um bloco grande e branco com o texto e a foto dentro; no celular a foto e a caixa de texto ficam separadas. -->
-    <div class="mt-6 grid grid-cols-1 gap-12 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch lg:gap-6 lg:rounded-[2rem] lg:bg-white lg:p-3 lg:shadow-sm lg:shadow-profundo/5">
+    <div class="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch lg:gap-6 lg:rounded-[2rem] lg:bg-white lg:p-3 lg:shadow-sm lg:shadow-profundo/5">
       <div class="relative rounded-[2rem] bg-white p-6 shadow-sm shadow-profundo/5 sm:p-10 lg:rounded-none lg:bg-transparent lg:p-9 lg:shadow-none">
         <h2 class="font-display text-4xl font-medium leading-[1.08] text-marinho sm:text-5xl lg:text-[3.4rem]">{contact.title}</h2>
         <p class="body-text mt-6 max-w-xl text-balance">{contact.text}</p>
@@ -181,9 +181,9 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
       <div class="flex flex-col gap-7 py-9 md:flex-row md:items-center md:justify-between">
         <div class="flex justify-center md:justify-start"><div class="rounded-2xl bg-white px-5 py-3.5 shadow-sm shadow-profundo/10 lg:px-6"><Wordmark /></div></div>
         <nav aria-label="Rodapé">
-          <ul class="mx-auto grid w-fit grid-cols-2 gap-3 sm:grid-cols-3">
+          <ul class="mx-auto grid w-full max-w-[21rem] grid-cols-2 gap-3 sm:w-fit sm:max-w-none sm:grid-cols-3">
             {nav.map((i) => (
-              <li><a href={i.href} class="flex w-40 items-center justify-center rounded-full bg-white py-2 text-[1rem] font-semibold text-marinho transition-colors hover:bg-nevoa">{i.label}</a></li>
+              <li><a href={i.href} class="flex w-full items-center justify-center rounded-full bg-white py-2 text-[1rem] font-semibold text-marinho transition-colors hover:bg-nevoa sm:w-40">{i.label}</a></li>
             ))}
           </ul>
         </nav>
@@ -207,26 +207,33 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
 </script>
 
 <script is:inline>
-  // FAQ: anima a altura do <details> (abrir e fechar). Sem JS ou com movimento reduzido, abre direto.
+  // FAQ: anima a altura do <details> (abrir e fechar) e mantém só um aberto por vez. Sem JS ou com movimento reduzido, abre direto.
   (() => {
+    const items = [...document.querySelectorAll('#duvidas details')];
     // O ícone (+/×) gira pelo data-open, que muda no clique; o atributo `open` só muda no fim da animação.
     const sync = (d) => { d.dataset.open = d.open; };
-    document.querySelectorAll('#duvidas details').forEach((d) => {
+    items.forEach((d) => {
       sync(d);
       d.addEventListener('toggle', () => sync(d));
     });
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    document.querySelectorAll('#duvidas details').forEach((d) => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach((d) => d.addEventListener('toggle', () => {
+        if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
+      }));
+      return;
+    }
+    const ctl = new Map();
+    items.forEach((d) => {
       const summary = d.querySelector('summary');
       const body = d.querySelector('summary ~ *');
       let isOpen = d.open;
       let run = 0;
-      summary.addEventListener('click', (e) => {
-        e.preventDefault();
+      const set = (next) => {
+        if (next === isOpen) return;
         const id = ++run;
         const from = d.offsetHeight; // altura atual, mesmo no meio de uma animação
         d.getAnimations().forEach((a) => a.cancel());
-        isOpen = !isOpen;
+        isOpen = next;
         d.dataset.open = isOpen;
         if (isOpen) d.open = true;
         const cs = getComputedStyle(d);
@@ -241,6 +248,12 @@ const [approachBefore, approachAfter] = approach.title.split(approachKey);
           d.open = isOpen;
           d.style.overflow = '';
         };
+      };
+      ctl.set(d, { set, get isOpen() { return isOpen; } });
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!isOpen) ctl.forEach((c, o) => { if (o !== d && c.isOpen) c.set(false); });
+        set(!isOpen);
       });
     });
   })();
