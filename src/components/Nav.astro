@@ -1,19 +1,10 @@
 ---
 import Wordmark from './Wordmark.astro';
-import Icon from './Icon.astro';
-import { nav, site, whatsappUrl, messages } from '../data/content';
 interface Props { tone?: 'dark' | 'light'; class?: string }
 const { tone = 'dark', class: cls = '' } = Astro.props;
-const link = tone === 'dark' ? 'font-medium text-[#25506f] hover:text-sereno' : 'text-white/90 hover:text-white';
-const btn = tone === 'dark' ? 'bg-marinho text-white hover:bg-profundo' : 'bg-white text-marinho hover:bg-nevoa';
 ---
-<header class={`relative z-20 mx-auto flex w-full max-w-6xl items-center justify-center gap-6 px-5 py-6 sm:justify-between sm:px-8 ${cls}`}>
-  <Wordmark {tone} />
-  <nav class="hidden items-center gap-5 text-[1rem] lg:flex xl:gap-7 xl:text-[1.1rem]" aria-label="Principal">
-    {nav.map((i) => <a href={i.href} class={`transition-colors ${link}`}>{i.label}</a>)}
-    <a href={`https://instagram.com/${site.instagram}`} target="_blank" rel="noopener" aria-label="Instagram" class={`transition-colors ${link}`}><Icon name="instagram" class="h-7 w-7" /></a>
-  </nav>
-  <a href={whatsappUrl(messages.nav)} class={`hidden rounded-full px-6 py-3 text-[.95rem] font-semibold transition-colors sm:inline-block ${btn}`}>
-    Agendar sessão
-  </a>
+<!-- A marca fica no topo (centralizada no celular, no desktop fica centralizada sobre o texto da hero, sobreposta à hero para não ocupar altura). A navegação (e o "Agendar sessão") vive no menu flutuante, igual no mobile e no desktop. -->
+<header class={`relative z-20 mx-auto flex w-full max-w-6xl items-center justify-center px-5 py-6 max-[399px]:pr-20 sm:px-8 lg:absolute lg:inset-x-0 lg:top-0 lg:justify-start ${cls}`}>
+  <!-- No desktop a marca é centralizada sobre o título da hero (largura = 7em do título: 3,6rem no lg, 4,5rem no xl). -->
+  <div class="flex justify-center lg:w-[25.2rem] xl:w-[31.5rem]"><div class="rounded-2xl bg-white px-3 py-3.5 shadow-sm shadow-profundo/10 min-[360px]:px-5 lg:px-6"><Wordmark {tone} /></div></div>
 </header>
